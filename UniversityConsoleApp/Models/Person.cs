@@ -19,7 +19,7 @@ namespace UniversityConsoleApp.Models
 
         public override string ToString()
         {
-            return $"{Id} {FirstName} {LastName} {FatherName} {Age}";
+            return $"ID: {Id}, FullName: {FirstName} {LastName} {FatherName}, Age: {Age}";
         }
     }
 }

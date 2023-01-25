@@ -25,10 +25,10 @@
                 if (item == null)
                     continue;
 
-                subjects+= item.ToString() + " ";
+                subjects+= item.ToString() + ",";
             }
 
-            return $"Student ID: {Id}, Student FullName: {FirstName} {LastName} {FatherName}, Age: {Age}\n{Group}\nEnter date: {EntryDate}\nCourse: {Course}\nSubjects:{subjects}";
+            return $"Student ID: {Id}, Student FullName: {FirstName} {LastName} {FatherName}, Age: {Age}\nGroup: {Group}\nEnter date: {EntryDate}\nCourse: {Course}\nSubjects:{subjects}\n\n";
         }
     }
 }

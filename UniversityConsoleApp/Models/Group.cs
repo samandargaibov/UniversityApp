@@ -2,7 +2,6 @@
 {
     internal class Group : Entity
     {
-        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -17,10 +16,10 @@
                 if (item == null)
                     continue;
 
-                students += item.ToString() + " ";
+                students += item.ToString() + "";
             }
 
-            return $"Group ID: {Id}, Group Name: {Name}\nTelebeler: {students} ";
+            return $"Group ID: {Id}, Group Name: {Name}\nTelebeler:\n{students}";
         }
     }
 }

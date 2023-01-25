@@ -110,7 +110,6 @@ namespace UniversityConsoleApp
                         Age = 27,
                         Course = 2,
                         EntryDate = DateTime.Now,
-                        Group = (Group)groupManager.Get(1),
                     };
 
                     var student2 = new Student
@@ -121,7 +120,6 @@ namespace UniversityConsoleApp
                         Age = 24,
                         Course = 2,
                         EntryDate = DateTime.Now,
-                        Group = (Group)groupManager.Get(2),
                     };
 
                     var student3 = new Student
@@ -132,7 +130,6 @@ namespace UniversityConsoleApp
                         Age = 22,
                         Course = 1,
                         EntryDate = DateTime.Now,
-                        Group = (Group)groupManager.Get(1),
                         
                     };
 
@@ -144,8 +141,6 @@ namespace UniversityConsoleApp
                         Age = 21,
                         Course = 1,
                         EntryDate = DateTime.Now,
-                        Group = (Group)groupManager.Get(3),
-
                     };
 
                     studentManager.Add(student1);
@@ -289,9 +284,11 @@ namespace UniversityConsoleApp
                     var department1 = new Department
                     {
                         Id = 1,
+                        Name = "Economic",
                         Teachers= new Teacher[]
                         {
                             (Teacher)teacherManager.Get(1),
+                            (Teacher)teacherManager.Get(2),
                         },
                         Leader = new Person
                         { 
@@ -305,6 +302,7 @@ namespace UniversityConsoleApp
                     var department2 = new Department
                     {
                         Id = 2,
+                        Name = "IT Technology",
                         Teachers = new Teacher[]
                         {
                             (Teacher)teacherManager.Get(2),

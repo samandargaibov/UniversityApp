@@ -2,6 +2,7 @@
 {
     internal class Department : Entity
     {
+        internal string Name { get; set; }
 
         internal Teacher[] Teachers { get; set; } = new Teacher[10];
 
@@ -17,10 +18,9 @@
                     continue;
 
                 printInfo+= item.ToString() + " ";
-                
-                
             }
-            return $"Department Leader: {Leader} \n Teachers: \n{printInfo}";
+
+            return $"Department Name: {Name},Department Leader: {Leader} \nTeachers: \n{printInfo}";
         }
     }
 }

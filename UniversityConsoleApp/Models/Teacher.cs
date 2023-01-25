@@ -8,7 +8,7 @@
         {
             string groups = "";
 
-            foreach (var item in groups)
+            foreach (var item in Groups)
             {
                 if (item == null)
                     continue;
