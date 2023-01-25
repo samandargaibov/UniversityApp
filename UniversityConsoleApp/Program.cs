@@ -110,6 +110,7 @@ namespace UniversityConsoleApp
                         Age = 27,
                         Course = 2,
                         EntryDate = DateTime.Now,
+                        Group = (Group)groupManager.Get(1),
                     };
 
                     var student2 = new Student
