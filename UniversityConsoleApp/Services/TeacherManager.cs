@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UniversityConsoleApp.Models;
 using UniversityConsoleApp.Services.Contracts;
+using Core.Services;
 
 namespace UniversityConsoleApp.Services
 {

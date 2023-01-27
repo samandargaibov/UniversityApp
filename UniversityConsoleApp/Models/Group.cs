@@ -1,4 +1,7 @@
-﻿namespace UniversityConsoleApp.Models
+﻿using Core.Services;
+
+namespace UniversityConsoleApp.Models
+
 {
     internal class Group : Entity
     {

@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityConsoleApp", "UniversityConsoleApp\UniversityConsoleApp.csproj", "{DCEB3D36-25E7-4CFA-8AD1-B531D20278A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheatreConsoleApp", "TheatreConsoleApp\TheatreConsoleApp.csproj", "{0C5DEF10-8578-4B65-9427-7A1E4C735108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{6C37316A-BDCF-4599-9178-B6F174910CA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DCEB3D36-25E7-4CFA-8AD1-B531D20278A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCEB3D36-25E7-4CFA-8AD1-B531D20278A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCEB3D36-25E7-4CFA-8AD1-B531D20278A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5DEF10-8578-4B65-9427-7A1E4C735108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5DEF10-8578-4B65-9427-7A1E4C735108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5DEF10-8578-4B65-9427-7A1E4C735108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5DEF10-8578-4B65-9427-7A1E4C735108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C37316A-BDCF-4599-9178-B6F174910CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C37316A-BDCF-4599-9178-B6F174910CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C37316A-BDCF-4599-9178-B6F174910CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C37316A-BDCF-4599-9178-B6F174910CA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
-﻿using UniversityConsoleApp.Models;
+﻿using Core.Services;
 
 namespace UniversityConsoleApp.Services.Contracts
 {
-    internal interface IPrintService
+    public interface IPrintService
     {
         void Print();
 

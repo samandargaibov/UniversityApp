@@ -1,4 +1,6 @@
-﻿namespace UniversityConsoleApp.Models
+﻿
+
+namespace UniversityConsoleApp.Models
 {
     internal class Student : Person
     {

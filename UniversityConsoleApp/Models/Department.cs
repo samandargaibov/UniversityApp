@@ -1,4 +1,6 @@
-﻿namespace UniversityConsoleApp.Models
+﻿using Core.Services;
+
+namespace UniversityConsoleApp.Models
 {
     internal class Department : Entity
     {

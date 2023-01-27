@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniversityConsoleApp.Models
+namespace TheatreConsoleApp.Services
 {
-    internal class Entity
+    internal class ZalManager
     {
-        internal int Id { get; set; }
     }
 }
