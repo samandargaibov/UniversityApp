@@ -9,7 +9,7 @@ namespace TheatreConsoleApp.Models
 {
     internal class Zal : Entity
     {
-        internal string[] Name { get; set; }
+        internal string Name { get; set; }
 
         internal int Row { get; set; }
 
@@ -24,10 +24,10 @@ namespace TheatreConsoleApp.Models
                 if (item == null)
                     continue;
 
-                zalInfo += item.ToString() + " ";
+                zalInfo += item.ToString();
             }
 
-            return $"Zal ID: {Id}, Kino Name: {zalInfo}, Sira: {Row}, Cerge: {Column}";
+            return $"Zal ID: {Id}, Zal Name: {zalInfo}, Sira: {Row}, Cerge: {Column}";
         }
     }
 }
