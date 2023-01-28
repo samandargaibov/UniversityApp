@@ -29,7 +29,33 @@ namespace TheatreConsoleApp.Services
 
         public void Delete(int id)
         {
-            
+            bool found = false;
+
+            for (int i = 0; i < _zals.Length; i++)
+            {
+                if (_zals[i] == null)
+                    continue;
+
+                if (id == _zals[i].Id)
+                {
+                    found = true;
+
+                    for (int j = i; j < _zals.Length - 1; j++)
+                    {
+                        _zals[j] = _zals[j + 1];
+                    }
+                    _currentIndex--;
+
+                    Console.WriteLine($"{id} id-li zal silindi!");
+
+                    return;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine($"{id} id-li zal tapilmadi!");
+            }
         }
 
         public Entity Get(int id)
@@ -70,7 +96,21 @@ namespace TheatreConsoleApp.Services
 
         public void Update(int id, Entity entity)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < _zals.Length; i++)
+            {
+                if (_zals[i] == null)
+                    continue;
+
+                if (_zals[i].Id == id)
+                {
+                    _zals[i] = (Zal)entity;
+                    Console.WriteLine("Ugurla deyishdirildi!");
+
+                    return;
+                }
+            }
+
+            Console.WriteLine("Not found");
         }
     }
 }

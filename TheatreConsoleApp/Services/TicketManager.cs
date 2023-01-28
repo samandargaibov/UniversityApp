@@ -8,7 +8,7 @@ using UniversityConsoleApp.Services.Contracts;
 
 namespace TheatreConsoleApp.Services
 {
-    internal class KinoManager : ICrudService, IPrintService
+    internal class TicketManager : ICrudService, IPrintService
     {
         public void Add(Entity entity)
         {

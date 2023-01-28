@@ -14,9 +14,15 @@ namespace TheatreConsoleApp.Models
 
         internal Zal[] Zals { get; set; }
 
+        internal Film[] Films { get; set; } 
+
+        internal Seans[] Seans { get; set; }
+
         public override string ToString()
         {
             string zalsInfo = "";
+            string filmInfo = "";
+            string seansInfo = "";
 
             foreach (var item in Zals)
             {
@@ -26,7 +32,24 @@ namespace TheatreConsoleApp.Models
                 zalsInfo += item.ToString() + " ";
             }
 
-            return $"Theatre ID: {Id}, Theatre Name: {Name},\nZals: {zalsInfo}";
+            foreach (var item in Films)
+            {
+                if (item == null)
+                    continue;
+
+                filmInfo += item.ToString() + "";
+            }
+
+            //foreach (var item in Seans)
+            //{
+            //    if (item == null)
+            //        continue;
+
+            //    seansInfo += item.ToString() + "";
+            //}
+
+            //return $"{Name}\nFilm: {filmInfo}\nSeans: {seansInfo}\nZal: {zalsInfo}";
+            return $"{Name}\nFilm: {filmInfo}\nZal: {zalsInfo}";
         }
     }
 }

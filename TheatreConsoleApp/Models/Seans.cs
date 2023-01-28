@@ -11,25 +11,48 @@ namespace TheatreConsoleApp.Models
 {
     internal class Seans : Entity
     {
-        internal Zal[] Zals { get; set; }
+        //internal Zal[] Zals { get; set; }
 
         internal DateTime SeansTime { get; set; }
 
-        internal string[] Films { get; set; }
+        //internal Film[] Films { get; set; }
+
+        internal Theatre[] Theatres { get; set; }
+
+        internal int Price { get; set; } 
 
         public override string ToString()
         {
             string filmInfo = "";
+            string zalInfo = "";
+            string theatreInfo = "";
 
-            foreach (var item in Films)
+            //foreach (var item in Films)
+            //{
+            //    if (item == null)
+            //        continue;
+
+            //    filmInfo += item.ToString() + " ";
+            //}
+
+            //foreach (var item in Zals)
+            //{
+            //    if (item == null)
+            //        continue;
+
+            //    zalInfo += item.ToString() + " ";
+            //}
+
+            foreach (var item in Theatres)
             {
                 if (item == null)
                     continue;
 
-                filmInfo += item.ToString() + " ";
+                theatreInfo += item.ToString() + " ";
             }
 
-            return $"Seans ID: {Id}, Zal: {Zals}, Seans Time: {SeansTime}, Films: {filmInfo} ";
+           // return $"Seans ID: {Id}\nFilm: {filmInfo}\nSeans: {SeansTime}\nKinoteatr: {theatreInfo}\nPrice: {Price} AZN\n";
+            return $"Seans ID: {Id}\nSeans: {SeansTime}\nKinoteatr: {theatreInfo}\nPrice: {Price} AZN\n";
         }
     }
 }

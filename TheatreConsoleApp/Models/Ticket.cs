@@ -7,7 +7,7 @@ using Core.Services;
 
 namespace TheatreConsoleApp.Models
 {
-    internal class Bilet : Entity
+    internal class Ticket : Entity
     {
     }
 }
