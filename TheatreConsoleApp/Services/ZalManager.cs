@@ -27,30 +27,6 @@ namespace TheatreConsoleApp.Services
             Console.WriteLine("Zal ugurla elave olundu!");
         }
 
-        public void AddRowColumn()
-        {
-            int[,] zal = new int[10, 10];
-
-            Console.Write("    ");
-            for (int i = 0; i < 10; i++)
-            {
-                Console.Write($"{i + 1} ");
-            }
-
-            Console.WriteLine();
-
-            for (int i = 0; i < zal.GetLength(0); i++)
-            {
-                Console.Write($"{i + 1,-3} ");
-
-                for (int j = 0; j < zal.GetLength(1); j++)
-                {
-                    Console.Write($"{zal[i, j]} ");
-                }
-                Console.WriteLine();
-            }
-        }
-
         public void Delete(int id)
         {
             bool found = false;
