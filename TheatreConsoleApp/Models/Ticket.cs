@@ -9,5 +9,15 @@ namespace TheatreConsoleApp.Models
 {
     internal class Ticket : Entity
     {
+        internal Seans Seans { get; set; }
+
+        internal int Row { get; set; }
+
+        internal int Column { get; set; }   
+
+        public override string ToString()
+        {
+            return $"Seans: {Seans}, row: {Row}, Column: {Column}"; 
+        }
     }
 }

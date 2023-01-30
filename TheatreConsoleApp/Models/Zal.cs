@@ -11,15 +11,15 @@ namespace TheatreConsoleApp.Models
     {
         internal string Name { get; set; }
 
-        internal int Row { get; set; }
+        internal Theatre Theatre { get; set; }
 
-        internal int Column { get; set; }
+        internal int RowCount { get; set; }
+
+        internal int ColumnCount { get; set; }
 
         public override string ToString()
         {
-
-            //return $"Zal ID: {Id}, Zal Name: {Name,-7}, Sira: {Row,-2}, Cerge: {Column,-2}";
-            return $"{Name}";
+            return $"Zal ID: {Id},Name: {Name},RowCount: {RowCount},ColumnCount: {ColumnCount}\n{Theatre}";
         }
     }
 }

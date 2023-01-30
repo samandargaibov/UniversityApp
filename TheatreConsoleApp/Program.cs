@@ -9,10 +9,13 @@ namespace TheatreConsoleApp
     {
         static void Main(string[] args)
         {
+            Console.Title = "Cinema APP";
+
             var zalManager = new ZalManager();
             var theatreManager = new TheatreManager();
             var seansManager = new SeansManager();
             var filmManager = new FilmManager();
+            var ticketManager = new TicketManager();
 
             string command = "";
             //string addZal = "add zal";
@@ -28,24 +31,27 @@ namespace TheatreConsoleApp
                     {
                         Id = 1,
                         Name = "Kapital",
-                        Column = 10,
-                        Row = 10,
+                        ColumnCount = 9,
+                        RowCount = 7,
+                        Theatre = (Theatre)theatreManager.Get(1),
                     };
 
                     var zal2 = new Zal
                     {
                         Id = 2,
                         Name = "Pasha",
-                        Column = 5,
-                        Row = 5,
+                        ColumnCount = 5,
+                        RowCount = 5,
+                        Theatre = (Theatre)theatreManager.Get(2),
                     };
 
                     var zal3 = new Zal
                     {
                         Id = 3,
                         Name = "Bolkart",
-                        Column = 15,
-                        Row = 15,
+                        ColumnCount = 8,
+                        RowCount = 8,
+                        Theatre = (Theatre)theatreManager.Get(1),
                     };
 
                     zalManager.Add(zal1);
@@ -64,19 +70,6 @@ namespace TheatreConsoleApp
                     {
                         Id = 1,
                         Name = "Azerbaijan Cinema",
-                        Zals = new Zal[]
-                        {
-                            (Zal)zalManager.Get(1),
-                        },
-                        Films = new Film[]
-                        {
-
-                            (Film)filmManager.Get(2),
-                        },
-                        Seans = new Seans[]
-                        {
-                            (Seans)seansManager.Get(1),
-                        }
                         
                     };
 
@@ -84,20 +77,7 @@ namespace TheatreConsoleApp
                     {
                         Id = 2,
                         Name = "Deniz Mall Cinema",
-                        Zals = new Zal[]
-                        {
-                            (Zal)zalManager.Get(2),
-                        },
-
-                        Films = new Film[]
-                        {
-                            (Film)filmManager.Get(1),
-
-                        },
-                        Seans = new Seans[]
-                        {
-                            (Seans)seansManager.Get(2),
-                        }
+                      
                     };
 
                     theatreManager.Add(theatre);
@@ -144,58 +124,28 @@ namespace TheatreConsoleApp
                     var seans = new Seans
                     {
                         Id = 1,
-                       // Films = new Film[]
-                       //{
-                       //    (Film)filmManager.Get(1),
-                       //},
-                       // Zals = new Zal[]
-                       //{
-                       //    (Zal)zalManager.Get(1),
-                       //},
+                        Film = (Film)filmManager.Get(1),
+                        Zal = (Zal)zalManager.Get(1),
                         SeansTime = DateTime.Parse("1/31/2023 6:00:00 PM"),
                         Price = 8,
-                        Theatres = new Theatre[]
-                        {
-                            (Theatre)theatreManager.Get(1),
-                        }
                     };
 
                     var seans1 = new Seans
                     {
                         Id = 2,
-                       // Films = new Film[]
-                       //{
-                       //    (Film)filmManager.Get(2),
-                       //},
-                       // Zals = new Zal[]
-                       //{
-                       //    (Zal)zalManager.Get(2),
-                       //},
+                        Film = (Film)filmManager.Get(2),
+                        Zal = (Zal)zalManager.Get(2),
                         SeansTime = DateTime.Parse("1/31/2023 10:00:00 PM"),
                         Price = 10,
-                        Theatres = new Theatre[]
-                        {
-                            (Theatre)theatreManager.Get(2),
-                        }
                     };
 
                     var seans2 = new Seans
                     {
                         Id = 3,
-                       // Films = new Film[]
-                       //{
-                       //    (Film)filmManager.Get(3),
-                       //},
-                       // Zals = new Zal[]
-                       //{
-                       //    (Zal)zalManager.Get(3),
-                       //},
+                        Film = (Film)filmManager.Get(3),
+                        Zal = (Zal)zalManager.Get(3),
                         SeansTime = DateTime.Parse("1/31/2023 8:00:00 PM"),
                         Price = 8,
-                        Theatres = new Theatre[]
-                        {
-                            (Theatre)theatreManager.Get(1),
-                        }
                     };
 
                     seansManager.Add(seans);
@@ -206,6 +156,100 @@ namespace TheatreConsoleApp
                 else if (command.ToLower().Equals("print seans"))
                 {
                     seansManager.Print();
+
+                    Console.WriteLine("1.Select Seans:");
+                    Console.WriteLine("2.Back: ");
+
+                    int operation = int.Parse(Console.ReadLine());
+                    bool seansCheck = false;
+
+                    switch (operation)
+                    {
+                        case 1:
+                            seansCheck = true;
+
+                            Console.Write("Seans ID-ni qeyd edin: ");
+                            var id = int.Parse(Console.ReadLine());
+
+                            var seans = (Seans)seansManager.Get(id);
+                            var tickets = ticketManager._ticket;
+
+                            Console.WriteLine("");
+                            Console.Write("  ");
+
+                            for (int i = 0; i < seans.Zal.ColumnCount; i++)
+                            {
+                                Console.Write((i + 1) + " ");
+                            }
+
+                            Console.WriteLine("");
+
+                            for (int i = 0; i < seans.Zal.RowCount; i++)
+                            {
+                                Console.Write((i + 1) + " ");
+
+                                for (int j = 0; j < seans.Zal.ColumnCount; j++)
+                                {
+                                    bool sold = false;
+
+                                    for (int k = 0; k < tickets.Length; k++)
+                                    {
+                                        if (tickets[k] != null && tickets[k].Seans.Id == id && tickets[k].Row == i && tickets[k].Column == j)
+                                        {
+                                            sold = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (sold)
+                                        Console.Write("$ ");
+                                    else
+                                        Console.Write("* ");
+                                }
+
+                                Console.WriteLine("");
+                            }
+
+                            break;
+                            case 2:
+                            seansCheck = true;
+                            break;
+                        default:
+                            seansCheck = true;
+                            Console.WriteLine("Wrong Number!!");
+                            break;
+                    }
+                    
+                    if (seansCheck)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("1.Buy Ticket:");
+                        Console.WriteLine("2.Back: ");
+
+                        int operation1 = int.Parse(Console.ReadLine());
+
+                        switch (operation1)
+                        {
+                            case 1:
+                                Console.Write("Select Seans: ");
+                                var seansId = int.Parse(Console.ReadLine());
+                                Console.Write("Select Row: ");
+                                var row = int.Parse(Console.ReadLine());
+                                Console.Write("Select Column: ");
+                                var column = int.Parse(Console.ReadLine());
+
+                                var seans = (Seans) seansManager.Get(seansId);
+
+                                ticketManager.CreateTicket(seans, row - 1, column - 1);
+
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                Console.WriteLine("Wrong Number!!");
+                                break;
+                        }
+                    }
                 }
 
             } while (command.ToLower() != "quit");

@@ -4,40 +4,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheatreConsoleApp.Models;
 using UniversityConsoleApp.Services.Contracts;
 
 namespace TheatreConsoleApp.Services
 {
-    internal class TicketManager : ICrudService, IPrintService
+    internal class TicketManager : IPrintService
     {
-        public void Add(Entity entity)
-        {
-            throw new NotImplementedException();
-        }
+        public Ticket[] _ticket = new Ticket[10];
+        private int _currentIndex = 0;
 
-        public void Delete(int id)
+        public void CreateTicket(Seans seans, int row, int column)
         {
-            throw new NotImplementedException();
-        }
+            _ticket[_currentIndex] = new Ticket
+            {
+                Seans = seans,
+                Row = row,
+                Column = column
+            };
 
-        public Entity Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Entity[] GetAll()
-        {
-            throw new NotImplementedException();
+            _currentIndex++;
         }
 
         public void Print()
         {
-            throw new NotImplementedException();
-        }
+            foreach (var item in _ticket)
+            {
+                if (item == null)
+                    continue;
 
-        public void Update(int id, Entity entity)
-        {
-            throw new NotImplementedException();
+                Console.WriteLine(item);
+            }
         }
     }
 }
